@@ -5,5 +5,6 @@ ENV PORT=10000
 
 COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY ["Monzati Expo.html", "/usr/share/nginx/html/index.html"]
+COPY media /usr/share/nginx/html/media
 
 EXPOSE 10000
