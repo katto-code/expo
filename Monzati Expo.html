@@ -3,15 +3,14 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Jost:wght@300;400;500&display=swap">
 <style>
-/* Layout: una pantalla de presentación. Cabecera con reloj, escenario central, pie con avance y orador. Colores del logo: azul, violeta, azul marino. */
+/* Presentación oscura con neón: azul cielo, violeta y rosa sobre azul noche. */
 :root{
-  --bg:#FFFFFF; --bg2:#F3F5FC; --fg:#1B1F3B; --mut:#5B6082; --line:#DDE2F5; --card:#FFFFFF;
-  --blue:#3A63E8; --violet:#7A3FE0; --acc:#5B3FE0; --ok:#1F7A3A; --warn:#B45309; --bad:#B42318;
-  --grad:linear-gradient(135deg,#3A63E8,#7A3FE0); --shadow:0 8px 24px #E4E8F8;
+  --bg:#0E0C24; --bg2:#17143A; --fg:#F4F2FF; --mut:#BDB8E4; --line:#2E2A5E; --card:#18153D;
+  --blue:#5EC8FF; --violet:#A15CFF; --pink:#FF6FD8; --acc:#C9A8FF; --ok:#6EE7A0; --warn:#FBBF24; --bad:#FCA5A5;
+  --grad:linear-gradient(135deg,#5EC8FF,#A15CFF 50%,#FF6FD8); --shadow:0 18px 40px #05031A99;
   --head:'Jost','Trebuchet MS',Arial,sans-serif; --text:'Inter',Arial,sans-serif;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141733;--bg2:#1B1F3F;--fg:#F2F4FF;--mut:#C5CBF0;--line:#353B72;--card:#1F2347;--acc:#A9BBFF;--ok:#6EE7A0;--warn:#FBBF24;--bad:#FCA5A5;--shadow:none;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#141733;--bg2:#1B1F3F;--fg:#F2F4FF;--mut:#C5CBF0;--line:#353B72;--card:#1F2347;--acc:#A9BBFF;--ok:#6EE7A0;--warn:#FBBF24;--bad:#FCA5A5;--shadow:none;color-scheme:dark}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--text);display:flex;flex-direction:column;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -27,7 +26,7 @@ header img{height:44px;width:auto}
 .tb{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;font-size:14px}
 .tb:hover{border-color:var(--blue)}
 main{flex:1;min-height:0;display:flex;overflow:auto}
-#stage{flex:1;min-width:0;padding-block:28px;display:flex;flex-direction:column;justify-content:center}
+#stage{flex:1;min-width:0;padding-block:16px;display:flex;flex-direction:column;justify-content:center}
 .scene{width:100%;max-width:1280px;margin:0 auto}
 @media (prefers-reduced-motion:no-preference){.scene{animation:in .45s ease-out both}@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}
 .eyebrow{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);font-weight:600;margin:0 0 14px}
@@ -42,17 +41,17 @@ h3{font-size:clamp(22px,2.4vw,30px);font-weight:500;color:var(--acc);margin-bott
 .tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow);min-width:0}
 .tile p{margin:0;color:var(--mut);font-size:clamp(15px,1.4vw,19px);line-height:1.45}
 .num{font-family:var(--head);font-weight:300;font-size:clamp(34px,4vw,56px);color:var(--acc);line-height:1;margin-bottom:8px}
-.tag{display:inline-block;background:var(--grad);color:#fff;font-weight:600;font-size:14px;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+.tag{display:inline-block;background:var(--grad);color:#0E0C24;font-weight:700;font-size:14px;padding:5px 14px;border-radius:99px;margin-bottom:12px}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
 .logo{width:100%;max-width:440px;height:auto;display:block;margin:0 auto}
 .sw{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 .sw div{flex:1;min-width:110px}.sw i{display:block;height:64px;border-radius:12px;border:1px solid var(--line)}.sw span{display:block;font-size:13px;color:var(--mut);margin-top:6px;line-height:1.35}
-.fullgrad{background:var(--grad);color:#fff;border-radius:28px;padding:clamp(28px,5vw,64px)}
+.fullgrad{background:linear-gradient(135deg,#2B2486,#6A2CC4 55%,#B0308F);box-shadow:0 30px 80px #A15CFF33;color:#fff;border-radius:28px;padding:clamp(24px,4vw,48px)}
 .fullgrad .eyebrow,.fullgrad .mut,.fullgrad .lead{color:#fff}.fullgrad .rule{background:#fff}
 .vid{position:relative;aspect-ratio:16/9;max-height:56vh;width:100%;background:#0D0F26;border-radius:22px;overflow:hidden;display:grid;place-items:center;color:#fff}
 .vid video{width:100%;height:100%;object-fit:contain;background:#0D0F26}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:8px}
-.step{display:flex;gap:14px;align-items:center;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.step{display:flex;gap:14px;align-items:center;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 16px}
 .step b{font-family:var(--head);font-size:28px;font-weight:300;color:var(--acc);min-width:28px}
 .step span{font-size:15px;color:var(--mut);line-height:1.35}.step em{display:block;font-style:normal;font-weight:600;color:var(--fg);font-size:17px}
 .step.on{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue) inset}
@@ -70,16 +69,16 @@ footer{border-top:1px solid var(--line);padding-block:10px;display:flex;align-it
 header,main,footer{position:relative;z-index:1}
 header img,.logo{background:#fff}
 header img{border-radius:8px;padding:2px}
-.logo{border-radius:28px;padding:18px;box-shadow:0 18px 50px #3A63E833}
+.logo{border-radius:28px;padding:18px;box-shadow:0 0 0 1px #A15CFF55,0 0 80px #A15CFF55}
 .pace{font-size:14px;font-weight:600;color:var(--mut)}.pace.ok{color:var(--ok)}.pace.late{color:var(--bad)}
-.rule{background:linear-gradient(90deg,#3A63E8,#7A3FE0,#3A63E8);background-size:200% 100%}
+.rule{background:linear-gradient(90deg,#5EC8FF,#A15CFF,#FF6FD8,#5EC8FF);background-size:200% 100%}
 .tile{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .tile:hover{transform:translateY(-4px);border-color:var(--blue)}
 .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
 .node{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
 .node b{display:block;font-family:var(--head);font-size:clamp(22px,2.4vw,30px);font-weight:500;color:var(--acc);margin-bottom:6px}
 .node span{color:var(--mut);font-size:clamp(14px,1.3vw,18px);line-height:1.45}
-.arr{flex:0 0 72px;align-self:center;height:4px;border-radius:2px;position:relative;background:linear-gradient(90deg,transparent,#3A63E8 50%,transparent) -40% 0/40% 100% no-repeat,var(--line)}
+.arr{flex:0 0 72px;align-self:center;height:4px;border-radius:2px;position:relative;background:linear-gradient(90deg,transparent,#5EC8FF 50%,transparent) -40% 0/40% 100% no-repeat,var(--line)}
 .arr:after{content:"";position:absolute;right:-3px;top:-6px;border-left:12px solid var(--violet);border-top:8px solid transparent;border-bottom:8px solid transparent}
 .tl{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:14px;padding-top:36px}
 .tl:before{content:"";position:absolute;top:11px;left:0;height:4px;width:100%;border-radius:2px;background:var(--grad);transform-origin:left}
@@ -106,8 +105,20 @@ header img{border-radius:8px;padding:2px}
   .tl:before{animation:grow 1.6s ease-out both}@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
   .arr{animation:run 1.6s linear infinite}@keyframes run{to{background-position:140% 0,0 0}}
 }
+/* toques de la referencia: tarjetas con filo de neón, número grande de sección y franja lateral */
+.scene{position:relative;isolation:isolate}
+.sn{position:absolute;top:-6px;right:0;z-index:-1;font-family:var(--head);font-weight:300;font-size:clamp(90px,13vw,190px);line-height:.8;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.28;pointer-events:none}
+main::before{content:"";position:absolute;left:-16px;top:12%;bottom:12%;width:4px;border-radius:0 4px 4px 0;background:var(--grad)}
+.tile,.node,.stats div,.step{background:linear-gradient(180deg,#1D1948,#141136);position:relative;overflow:hidden}
+.tile::before,.node::before,.stats div::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--grad);opacity:.85}
+.tile:hover{box-shadow:0 0 0 1px #A15CFF,0 20px 50px #A15CFF33}
+h1,.stats .cu{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fullgrad h1{background:none;color:#fff}
+.vid{box-shadow:0 0 0 1px #A15CFF66,0 0 70px #5EC8FF33}
+.team h3{font-size:clamp(18px,1.8vw,24px)}
+.pal{display:flex;height:58px;border-radius:12px;overflow:hidden;margin-bottom:14px;border:1px solid #ffffff22}.pal i{flex:1}
 /* citas */
-.quote{margin:0 0 26px;padding:6px 0 6px 22px;border-left:4px solid var(--violet);max-width:62ch}
+.quote{margin:0 0 14px;padding:6px 0 6px 22px;border-left:4px solid var(--violet);max-width:62ch}
 .quote p{margin:0;font-family:var(--head);font-weight:300;font-size:clamp(20px,2.2vw,30px);line-height:1.3;font-style:italic}
 .quote .es{font-family:var(--text);font-style:normal;font-size:clamp(14px,1.3vw,17px);color:var(--mut);margin-top:6px}
 .quote cite{display:block;margin-top:6px;font-style:normal;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);font-weight:600}
@@ -148,16 +159,18 @@ const SCENES=[
 {id:"trailer",nav:"Trailer",who:"Todo el equipo",lang:"Video",t:"1:00",notes:"Criterio 2.1. Video de 31 s: reproducir a pantalla completa con audio (doble clic en el video). Tener la copia en la laptop por si falla. Ojo: el video cierra con «Viste tu mejor versión.» y nuestro slogan es «Vuelve a ti.»; decir el slogan al terminar.",
  html:()=>`<p class="eyebrow">Trailer · 31 segundos</p><div class="vid"><video src="media/video.mp4" controls playsinline preload="metadata"></video></div>`},
 {id:"equipo",nav:"Equipo",who:"Todos",lang:"Español",t:"2:00",notes:"Criterio 3.2. Abrir con la cita de San Agustín. Cada integrante dice su nombre completo y su rol en una frase. Uniforme igual para todos (criterio 4.1). <b>Transición (Mariana):</b> «Toda marca bella empieza con una forma. Así nació nuestro logo.»",
- html:()=>`<p class="eyebrow">¿Quiénes somos?</p><h2>Equipo Cuāltzin</h2><div class="rule"></div>${q("Love is itself the beauty of the soul.","El amor es la belleza misma del alma.","San Agustín")}<div class="tiles"><div class="tile"><h3>Angel Kalet Martínez Jara</h3><p>Líder de proyecto y desarrollador</p></div><div class="tile"><h3>Alejandro Albarrán Bellido</h3><p>Desarrollador backend</p></div><div class="tile"><h3>Jessica Mariana Salgado Martínez</h3><p>Diseñadora</p></div><div class="tile"><h3>Maximiliano Carmona Herrera</h3><p>Tester y auxiliar de desarrollo</p></div><div class="tile"><h3>Hany Guadalupe Gómez Álvarez</h3><p>Analista</p></div></div><p class="mut" style="margin-top:28px">Universidad Tecnológica de Tecámac · Proyecto final de graduación</p>`},
+ html:()=>`<p class="eyebrow">¿Quiénes somos?</p><h2>Equipo Cuāltzin</h2><div class="rule"></div>${q("Love is itself the beauty of the soul.","El amor es la belleza misma del alma.","San Agustín")}<div class="tiles team"><div class="tile"><h3>Angel Kalet Martínez Jara</h3><p>Líder de proyecto y desarrollador</p></div><div class="tile"><h3>Alejandro Albarrán Bellido</h3><p>Desarrollador backend</p></div><div class="tile"><h3>Jessica Mariana Salgado Martínez</h3><p>Diseñadora</p></div><div class="tile"><h3>Maximiliano Carmona Herrera</h3><p>Tester y auxiliar de desarrollo</p></div><div class="tile"><h3>Hany Guadalupe Gómez Álvarez</h3><p>Analista</p></div></div><p class="mut" style="margin-top:28px">Universidad Tecnológica de Tecámac · Proyecto final de graduación</p>`},
 {id:"logo",nav:"Logo",who:"Mariana",lang:"Español",t:"4:00",notes:"Criterios 3.1 y 3.2. «Cuāltzin es la empresa que desarrolla el proyecto. Monzati es la marca con la que presentamos la plataforma.» «El logo es un maniquí con circuitos: la moda y la tecnología. El degradado de azul a violeta muestra el paso de lo físico a lo digital.» Pendiente: confirmar el significado final del logo. <b>Transición:</b> «El logo es la primera mirada; el nombre y los colores son la personalidad.»",
  html:()=>`<div class="split"><img class="logo" src="${LOGO}" alt="Logo de Monzati"><div><p class="eyebrow">Empresa y marca · Logo</p><h2>Cuāltzin crea Monzati</h2><div class="rule"></div><p class="lead">Un maniquí con circuitos: la moda que se une a la tecnología.</p><p class="mut" style="margin-top:18px">El degradado de azul a violeta representa el paso de lo físico a lo digital. Cuāltzin es la empresa; Monzati es la marca de la plataforma.</p></div></div>`},
 {id:"marca",nav:"Marca",who:"Mariana",lang:"Español",t:"5:15",notes:"Criterios 3.3 y 1.2. «Nuestro slogan es “Vuelve a ti”. Los colores: azul para la confianza, violeta para la creatividad, azul marino para la elegancia y blanco para la limpieza.» Cerrar con la cita de Keats. Pendiente: la app usa negro y dorado; confirmar la paleta final. <b>Transición:</b> «Hasta aquí lo bonito. Ahora, lo que no se ve tan bonito.» (Sigue Max.)",
  html:()=>`<div class="fullgrad"><p class="eyebrow">Empresa y marca · Slogan y colores</p><h1 style="font-size:clamp(44px,8vw,120px);letter-spacing:.03em">Vuelve a ti.</h1><div class="rule"></div><p class="lead">Monzati: moda que parte de ti, de tu clóset, tu cuerpo y tus marcas locales.</p><div style="margin-top:26px">${q("A thing of beauty is a joy for ever.","Una cosa bella es una alegría para siempre.","John Keats")}</div><div class="sw" style="color:#fff">${sw("#3A63E8","Azul: confianza")}${sw("#7A3FE0","Violeta: creatividad")}${sw("#1B1F3B","Azul marino: elegancia")}${sw("#FFFFFF","Blanco: limpieza")}</div></div>`},
 {id:"problema",nav:"Problema",who:"Max",lang:"Inglés",t:"6:30",notes:"Criterios 1.1 y 5.1. «People buy clothes they never wear, buy without trying them on, and return what does not fit. Local brands have almost no digital tools.» Preguntar al grupo: «How many clothes do you have that you never wear?» y esperar dos o tres respuestas (criterio 6.2). <b>Transición:</b> «Something beautiful should not be this hard to find, so we built an answer.» (Sigue Mariana.)",
  html:()=>`<p class="eyebrow">El problema</p><h2>Mucha ropa y nada que ponerse</h2><div class="rule"></div><div class="tiles"><div class="tile"><h3>Ropa olvidada</h3><p>Compramos prendas que nunca usamos y olvidamos lo que ya tenemos.</p></div><div class="tile"><h3>Comprar sin probarse</h3><p>Compramos sin probarnos la ropa y devolvemos lo que no queda.</p></div><div class="tile"><h3>Marcas sin herramientas</h3><p>Las marcas locales casi no tienen herramientas digitales frente a las grandes cadenas.</p></div></div><p class="lead" style="margin-top:32px;color:var(--acc)">Pregunta para ustedes: ¿cuánta ropa tienen y nunca usan?</p>`},
-{id:"solucion",nav:"Solución",who:"Mariana",lang:"Inglés",t:"8:15",notes:"Criterio 1.1. Abrir con la cita de Coco Chanel. «One ecosystem, four pieces: closet, virtual fitting room, marketplace and partner panel.» Un ejemplo por pieza. <b>Transición:</b> «A beautiful idea needs a complete shape. Let’s look inside.» (Sigue Hany.)",
+{id:"solucion",nav:"Solución",who:"Mariana",lang:"Inglés",t:"8:15",notes:"Criterio 1.1. Abrir con la cita de Coco Chanel. «One ecosystem, four pieces: closet, virtual fitting room, marketplace and partner panel.» Un ejemplo por pieza. <b>Transición:</b> «And it dresses to your style.» (Sigue con los estilos.)",
  html:()=>`${q("In order to be irreplaceable, one must always be different.","Para ser irremplazable, hay que ser siempre diferente.","Coco Chanel")}<p class="eyebrow">Nuestra solución</p><h2>Un ecosistema, cuatro piezas</h2><div class="rule"></div><div class="tiles"><div class="tile"><span class="tag">Clóset</span><p>Digitaliza tu ropa con la cámara: fondo recortado, categoría y color.</p></div><div class="tile"><span class="tag">Probador con cámara</span><p>La prenda sigue tu cuerpo en vivo y se envía al espejo 3D.</p></div><div class="tile"><span class="tag">Marketplace</span><p>Marcas locales, tallas con existencias, carrito y pago de prueba.</p></div><div class="tile"><span class="tag">Panel de socios</span><p>Ventas, comisión, alta de productos e inventario por talla.</p></div></div><p class="mut" style="margin-top:28px">Además, un espejo 3D en la laptop que usa la webcam: sin hardware especial.</p>`},
-{id:"alcance",nav:"Alcance",who:"Hany",lang:"Inglés",t:"10:00",notes:"Criterios 1.1 y 2.2. «Our goal is a 100 % functional platform, end to end, with fictional brands and test payments.» Recorrer lo incluido y lo que queda fuera. Métricas: probador a 30 fps o más, espejo a 15 fps o más con pose, SUS de 68 o más con 10 a 20 usuarios en la beta, y 85 % de cumplimiento por sprint. <b>Transición:</b> «Good things take time. Here is how ours unfolds.»",
+{id:"estilos",nav:"Estilos",who:"Mariana",lang:"Inglés",t:"9:30",notes:"Criterios 1.1 y 2.1. «Five styles: Monzatti by default, plus Coquette, Gothic, Streetwear and Old Money. A five-question quiz picks yours, and the whole app changes color.» Las preguntas: look, plan de fin de semana, zapatos, accesorio y colores del clóset. Gana el estilo con más puntos; en empate, el de la pregunta 1. Para hombre, Coquette se llama Romántico y Gótica, Gótico. Se verá en la demo (paso 2). <b>Transición:</b> «A beautiful idea needs a complete shape. Let’s look inside.» (Sigue Hany.)",
+ html:()=>`<p class="eyebrow">Personalización · Estilos de la app</p><h2>Cinco estilos, una app que se viste contigo</h2><div class="rule"></div><div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">${STYLES.map(([n,t,c])=>`<div class="tile" style="padding:18px"><div class="pal">${c.map(x=>`<i style="background:${x}"></i>`).join("")}</div><h3 style="font-size:24px">${n}</h3><p style="font-size:15px">${t}</p></div>`).join("")}</div><p class="mut" style="margin-top:24px">Un cuestionario de 5 preguntas (look, plan, zapatos, accesorio y colores) elige tu estilo, y toda la app cambia de colores al instante.</p>`},
+{id:"alcance",nav:"Alcance",who:"Hany",lang:"Inglés",t:"10:45",notes:"Criterios 1.1 y 2.2. «Our goal is a 100 % functional platform, end to end, with fictional brands and test payments.» Recorrer lo incluido y lo que queda fuera. Métricas: probador a 30 fps o más, espejo a 15 fps o más con pose, SUS de 68 o más con 10 a 20 usuarios en la beta, y 85 % de cumplimiento por sprint. <b>Transición:</b> «Good things take time. Here is how ours unfolds.»",
  html:()=>`<p class="eyebrow">Alcance, objetivos y métricas</p><h2>Una plataforma 100 % funcional</h2><div class="rule"></div><div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"><div class="tile"><h3>Incluido en la versión 1.0</h3><p>App Android, dos tipos de cuenta, clóset con recorte de fondo, probador con cámara, tienda con carrito, panel de socios y espejo en la laptop.</p></div><div class="tile"><h3>Fuera de alcance</h3><p>Hardware físico de proyección, dinero real, iOS y publicación en tiendas de apps.</p></div></div><div class="stats" style="margin-top:20px"><div><span class="cu" data-n="30">0</span><small>fps o más en el probador</small></div><div><span class="cu" data-n="15">0</span><small>fps o más en el espejo</small></div><div><span class="cu" data-n="68">0</span><small>o más en la escala SUS</small></div><div><span class="cu" data-n="85" data-s="%">0</span><small>de cumplimiento por sprint</small></div></div>`},
 {id:"proceso",nav:"Proceso",who:"Hany",lang:"Inglés",t:"12:30",notes:"Criterio 2.2. «We work in two-week sprints, with a demo at the end of each stage.» Explicar las cuatro etapas: inicio, planificación, ejecución y cierre, con seguimiento por KPIs. Mencionar el 20 % de colchón.",
  html:()=>`<p class="eyebrow">Cómo trabajamos · Scrum</p><h2>Sprints de dos semanas, cinco personas</h2><div class="rule"></div><div class="tiles"><div class="tile"><div class="num">01</div><h3>Inicio</h3><p>Acta de constitución y propuesta del proyecto.</p></div><div class="tile"><div class="num">02</div><h3>Planificación</h3><p>Plan aprobado y línea base de 1,120 horas.</p></div><div class="tile"><div class="num">03</div><h3>Ejecución</h3><p>Incrementos funcionales con demo al cierre de cada sprint.</p></div><div class="tile"><div class="num">04</div><h3>Cierre</h3><p>Versión 1.0 aceptada y acta de cierre.</p></div></div><p class="mut" style="margin-top:28px">Seguimiento con KPIs en cada sprint · 20 % de colchón · Lunes de planeación y viernes de revisión</p>`},
@@ -166,7 +179,7 @@ const SCENES=[
 {id:"tecnologia",nav:"Tecnología",who:"Alejandro",lang:"Inglés",t:"15:00",notes:"Criterio 1.1. «One backend, one login, two roles.» Una frase por tarjeta: app Android con Kotlin, Jetpack Compose y Hilt; Supabase para cuentas, base de datos, fotos y tiempo real; ML Kit en el celular para recorte de fondo y pose; MediaPipe y Three.js para el espejo web. Servidor de fotos con IA como opción aparte. <b>Transición:</b> «Enough theory. Let’s see beauty working, live.»",
  html:()=>`<p class="eyebrow">Tecnología</p><h2>Un backend, un acceso, dos roles</h2><div class="rule"></div><div class="tiles"><div class="tile"><h3>App Android</h3><p>Kotlin, Jetpack Compose y Hilt.</p></div><div class="tile"><h3>Supabase</h3><p>Cuentas, base de datos, fotos y tiempo real.</p></div><div class="tile"><h3>ML Kit</h3><p>Recorte de fondo y pose, en el celular.</p></div><div class="tile"><h3>Espejo web</h3><p>MediaPipe y Three.js con la webcam de la laptop.</p></div></div><p class="mut" style="margin-top:28px">Usuarios y socios usan la misma app: el tipo de cuenta decide lo que ven. Servidor de fotos con IA como opción aparte.</p>`},
 {id:"demo",nav:"Demo en vivo",who:"Angel maneja · narran todos",lang:"Inglés",t:"16:30",notes:"Criterio 2.1. 15 minutos con la app real (repo katto-code/monzati). Abrir con la cita de Iman. <b>Antes:</b> app instalada, batería arriba de 80 %, modo no molestar; espejo en la laptop con <code>python -m http.server 5178 --directory mirror</code> → http://localhost:5178, tecla F, conectado al proyector; luz de frente y marca en el piso a 1.5–2 m de la webcam; una prenda real a la mano. <b>Frases:</b> Hany «Let’s open the app. Vuelve a ti: the closet we forget.» · Mariana «Four styles plus Monzatti, from the first minute.» · Max «Everything runs on the phone. The photo never leaves the device.» y «ML Kit pose, live. We track the frame rate as a KPI.» · Angel «The phone sends the garment to the mirror in real time. No special hardware.» · Alejandro «This is a test payment with a 10-minute reservation.» y «Partners see sales, commission and stock by size.» <b>Si algo falla:</b> sin internet, «Usar modo demo (sin conexión)»; el espejo no detecta, acercarse a la luz o tecla D (maniquí 360°); la app se cierra, reabrirla. 31:00–31:30 es colchón. <b>Transición (Hany):</b> «Una belleza que se ve bien también tiene que sostenerse. Hablemos de cómo gana dinero.»",
- html:()=>{const d0=startOf(SCENES.findIndex(x=>x.id==="demo"));return`${q("Beauty is being comfortable and confident in your own skin.","La belleza es sentirse cómodo y seguro de tu propia piel.","Iman")}<p class="eyebrow">Demo en vivo · App real y espejo en la laptop</p><h2 style="margin-bottom:18px">Abramos la app</h2><div class="steps">${DEMO.map(([o,t,d,w],k)=>`<div class="step"><b>${k+1}</b><span><em>${t}</em>${d}<br><small style="color:var(--acc);font-weight:600">Narra ${w} · min ${mm(d0+o*DUR/BASE)}</small></span></div>`).join("")}</div>`}},
+ html:()=>{const d0=startOf(SCENES.findIndex(x=>x.id==="demo"));return`${q("Beauty is being comfortable and confident in your own skin.","La belleza es sentirse cómodo y seguro de tu propia piel.","Iman")}<p class="eyebrow">Demo en vivo · App real y espejo en la laptop</p><h2 style="margin-bottom:10px">Abramos la app</h2><div class="steps">${DEMO.map(([o,t,d,w],k)=>`<div class="step"><b>${k+1}</b><span><em>${t}</em>${d}<br><small style="color:var(--acc);font-weight:600">Narra ${w} · min ${mm(d0+o*DUR/BASE)}</small></span></div>`).join("")}</div>`}},
 {id:"negocio",nav:"Negocio",who:"Hany",lang:"Español",t:"31:30",notes:"Criterio 5.2. «Monzati cobra una comisión del 12 % por cada venta. Para las marcas no hay costo inicial.» «El costo en efectivo del proyecto es de unos 6,984 pesos; el resto es trabajo del equipo.» Pendiente: el 12 % viene de la app y el documento lo deja abierto; confirmarlo antes de la expo. <b>Transición:</b> «Una experiencia bella no sirve si falla. Veamos qué probamos.» (Sigue Max.)",
  html:()=>`<p class="eyebrow">Negocio</p><h2>Cómo gana Monzati</h2><div class="rule"></div><div class="flow"><div class="node"><b>Persona usuaria</b><span>Compra una prenda con su talla</span></div><i class="arr"></i><div class="node"><b>Monzati</b><span>Retiene una comisión del 12 %</span></div><i class="arr"></i><div class="node"><b>Marca local</b><span>Recibe el resto de la venta</span></div></div><div class="tiles" style="margin-top:24px"><div class="tile"><h3>Usuarios</h3><p>Gratis: clóset, probador y compras.</p></div><div class="tile"><h3>Marcas locales</h3><p>Sin costo inicial, con visibilidad.</p></div><div class="tile"><h3>Costo del proyecto</h3><p>Unos $6,984 MXN en efectivo; el resto es trabajo del equipo.</p></div></div><p class="mut" style="margin-top:22px">Para la tesis, las marcas son ficticias y los pagos son de prueba.</p>`},
 {id:"calidad",nav:"Calidad y riesgos",who:"Max",lang:"Español",t:"33:00",notes:"Criterio 6.2. «Probamos con pruebas unitarias, de extremo a extremo con Maestro y Playwright, y con auditoría de seguridad.» Riesgos: el probador en celulares de gama media (meta de 30 fps), la privacidad de fotos y medidas, y el costo de los servicios de IA. <b>Transición:</b> «Para cerrar esta parte, veamos en qué punto está nuestro proyecto.»",
@@ -176,6 +189,8 @@ const SCENES=[
 {id:"cierre",nav:"Cierre",who:"Angel",lang:"Español e inglés",t:"35:30",notes:"Criterio 6.4. «Gracias. Cuāltzin y Monzati: vuelve a ti.» Leer la cita de Emerson. «Thank you. We are open to questions.» Unos 3 minutos de preguntas; terminar a los 40:00 con «Thank you». Al final el docente firma el acuerdo de calificación.",
  html:()=>`<div class="fullgrad"><p class="eyebrow">Gracias</p><h1 style="font-size:clamp(44px,8vw,120px);letter-spacing:.03em">Vuelve a ti.</h1><div class="rule"></div><p class="lead">Cuāltzin · Monzati · Angel · Alejandro · Mariana · Max · Hany</p><div style="margin-top:26px">${q("Never lose an opportunity of seeing anything beautiful, for beauty is God’s handwriting.","Nunca dejes pasar la oportunidad de ver algo bello, porque la belleza es la letra de Dios.","Ralph Waldo Emerson")}</div><p class="lead" style="margin-top:8px">¿Preguntas? · Questions?</p></div>`}
 ];
+/* estilos de la app (domain/model/Models.kt y core/theme/MonzattiColors.kt) */
+const STYLES=[["Monzatti","Negro, crema y dorado. El estilo predeterminado.",["#171717","#C9A227","#F3F2EF","#77746F"]],["Coquette · Romántico","Romántico y pastel: tonos suaves y delicados.",["#FFF8E7","#F4C2C2","#FADADD","#DCAE96","#C8AD7F"]],["Gótica · Gótico","Oscuro y dramático: negro, tonos joya y plata.",["#0B0B0B","#2C2C2C","#4A0404","#301934","#C0C0C0"]],["Streetwear","Urbano y de alto contraste: neutros con color vibrante.",["#1C1C1C","#8E8E8E","#F5F5DC","#FF5500","#0047AB"]],["Old Money","Atemporal y sobrio: neutros cálidos y tonos profundos.",["#D8C3A5","#1B263B","#C19A6B","#1E3F20","#D4AF37"]]];
 /* demo: [segundos desde el inicio de la demo, paso, qué se muestra, quién narra] */
 const DEMO=[[0,"Abrir la app","Splash con el monograma","Hany"],[60,"Cuenta y estilo","Crear cuenta, género y cuestionario de estilo; la app cambia de colores","Mariana"],[180,"Digitalizar una prenda","Captura automática, fondo recortado, categoría y color sugeridos","Max"],[330,"Probador con cámara","La prenda sigue el cuerpo; deslizar para cambiar; FPS en pantalla","Max"],[480,"Espejo 3D","«Al espejo» desde el celular; la prenda aparece en la laptop","Angel"],[660,"Tienda y pago de prueba","Talla agotada, carrito, reserva de 10 min y pedido confirmado","Alejandro"],[780,"Socio comercial","Ventas con comisión del 12 %, alta de producto e inventario por talla","Alejandro"]];
 
@@ -186,7 +201,7 @@ const mm=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+String(s%60
 const startOf=k=>secs(SCENES[k].t)*DUR/BASE;
 const endOf=k=>k<SCENES.length-1?startOf(k+1):DUR;
 function show(i){cur=Math.max(0,Math.min(SCENES.length-1,i));const s=SCENES[cur];
-  $("#stage").innerHTML=`<div class="scene">${s.html()}</div>`;if(s.after)s.after();countUp();
+  $("#stage").innerHTML=`<div class="scene"><span class="sn" aria-hidden="true">${String(cur+1).padStart(2,"0")}</span>${s.html()}</div>`;if(s.after)s.after();countUp();
   $("#where").textContent=`${cur+1} / ${SCENES.length} · ${s.nav}`;
   $("#who").innerHTML=`<b>${s.who}</b> · ${s.lang} · min ${mm(startOf(cur))}`;
   $("#notes").innerHTML=`<h4>${s.nav}</h4>${s.notes}`;
@@ -219,10 +234,10 @@ document.addEventListener("keydown",e=>{
 
 /* ---------- Fondo animado ---------- */
 (function(){const c=$("#bg"),x=c.getContext("2d");let W,H,P=[],O=[],mx=0,my=0,on=true;const rm=matchMedia("(prefers-reduced-motion: reduce)");
-const dark=()=>{const t=document.documentElement.dataset.theme;return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches};
+const dark=()=>true;
 function size(){const dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
   P=Array.from({length:Math.round(Math.min(70,W*H/22000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:1+Math.random()*1.6}));
-  O=[{x:.2,y:.25,r:.38,c:"58,99,232",s:.00021,a:0},{x:.8,y:.7,r:.42,c:"122,63,224",s:.00017,a:2},{x:.6,y:.15,r:.28,c:"90,160,255",s:.00025,a:4}]}
+  O=[{x:.2,y:.25,r:.38,c:"94,200,255",s:.00021,a:0},{x:.8,y:.7,r:.42,c:"161,92,255",s:.00017,a:2},{x:.6,y:.15,r:.28,c:"255,111,216",s:.00025,a:4}]}
 addEventListener("pointermove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
 function frame(t){const d=dark();x.clearRect(0,0,W,H);const oa=d?.30:.16;
   O.forEach(o=>{const px=(o.x+Math.cos(t*o.s+o.a)*.08-mx*.03)*W,py=(o.y+Math.sin(t*o.s*1.3+o.a)*.08-my*.03)*H,r=o.r*Math.max(W,H)*.6,g=x.createRadialGradient(px,py,0,px,py,r);g.addColorStop(0,"rgba("+o.c+","+oa+")");g.addColorStop(1,"rgba("+o.c+",0)");x.fillStyle=g;x.fillRect(0,0,W,H)});
